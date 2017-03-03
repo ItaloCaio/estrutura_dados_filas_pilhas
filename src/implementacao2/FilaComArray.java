@@ -1,64 +1,80 @@
 package implementacao2;
 
+
+
 public class FilaComArray implements Fila_IF {
 
 	
 	private int array[] = new int[10];
-	private int posiction = 0;
+	private int quant;
+	private int cabeca = 0;
+	private int rabo = 0;
+	private int numDeElementos;
+	int aux;
+
 	
 	@Override
 	public void enqueue(int element) throws Exception {
 		
 		
-		
-		if(posiction <10){
+		if (rabo == array.length) {
+			rabo = 0;
+			aux ++;
 			
-			array[posiction] = element;
-			
-			posiction++;
 		}
 		
+		if( aux==0)
+			array[rabo++] = element;
+		else
+		{
+			array[rabo++] = element;
+			cabeca++;
+			if(cabeca == array.length)
+				cabeca =0;
+		}
+
+		if (numDeElementos < array.length)
+			numDeElementos++;
+
 
 	}
 
 	@Override
 	public int dequeue() throws Exception {
 		
-		int aux = array[posiction];
+		if(cabeca== array.length)
+			cabeca = 0;
 		
-		if(!isEmpty()){
-			
-			array[posiction] = 0;
-			
-			posiction --;
-		}
+		int x = array[cabeca];
 		
+		if (isEmpty()) 
+			throw new Exception("Buffer Vazio, não pode mais remover");
 		
-		return aux;
+			array[cabeca] = 0;
+			cabeca++;
+			numDeElementos--;
+	
+	
+		return x;
 	}
 
 	@Override
 	public int head() throws Exception {
 		// TODO Auto-generated method stub
-		return 0;
+		return array[cabeca];
 	}
 
 	@Override
 	public boolean isEmpty() {
 		
-		if(posiction >1)
-		return false;
-		else
-			return true;
+		return (numDeElementos == 0);
 	}
 
 	@Override
 	public boolean isFull() {
 		// TODO Auto-generated method stub
-		if(posiction ==10)
-			return true;
-		else 
-			return false;
+		
+			return (numDeElementos == 10);
 	}
 
 }

@@ -28,6 +28,7 @@ public class BrincandoComPilhaEFila {
 		Fila_IF minhaFila1 = new FilaComArray();
 		minhaFila1.enqueue(100);
 		minhaFila1.enqueue(200);
+		
 		System.out.println(minhaFila1.head() == 100);
 		System.out.println(minhaFila1.dequeue() == 100);
 		System.out.println(minhaFila1.dequeue() == 200);

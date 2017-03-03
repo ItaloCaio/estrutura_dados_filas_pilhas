@@ -2,9 +2,14 @@ package implementacao2;
 
 public class PilhaComFilas implements Pilha_IF {
 
+	Fila_IF minhaFila1 = new FilaComArray();
+	Fila_IF minhaFila2 = new FilaComArray();
+	
+	
 	@Override
 	public void push(int element) throws Exception {
-		// TODO Auto-generated method stub
+	
+		minhaFila1.enqueue(element);
 
 	}
 
