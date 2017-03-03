@@ -5,6 +5,12 @@ public class FilaComPilhas implements Fila_IF {
 	Pilha_IF minhaPilha1 = new PilhaComArray();
 	Pilha_IF minhaPilha2 = new PilhaComArray();
 	private int numElementos = 0;
+	
+	public static void main(String[] args) throws Exception {
+		
+		
+		
+	}
 
 	@Override
 	public void enqueue(int element) throws Exception {
